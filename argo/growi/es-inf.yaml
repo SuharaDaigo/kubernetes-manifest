@@ -23,6 +23,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: es
+  namespace: growi
   labels:
     app: growi
   annotations:
