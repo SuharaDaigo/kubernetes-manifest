@@ -17,6 +17,7 @@ spec:
     type: Recreate
   template:
     metadata:
+      namespace: growi
       annotations:
         kompose.cmd: kompose convert --volumes hostPath -o k8s/overlays/local
         kompose.version: 1.34.0 (HEAD)
