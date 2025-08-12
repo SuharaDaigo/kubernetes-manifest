@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  template:
+    metadata:
+      labels:
+        io.kompose.service: app
+    spec:
+      containers:
+        - image: weseek/growi:7.2.4
+          name: app
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ELASTICSEARCH_URI
+              value: http://elasticsearch:9200/growi
+            - name: MONGO_URI
+              value: mongodb://growiuser:mUHw32hTTEaZ@mongodb-mongodb-sharded.mongodb:27017/growi
+            - name: PASSWORD_SEED
+              value: changeme
+            - name: SECRET_TOKEN
+              value: NRXwRb53dWrq3B8v9Z5y
+            - name: AUDIT_LOG_ENABLED
+              value: "true"
+            - name: OGP_URI
+              value: http://ogp:8088
+            - name: AI_ENABLED
+              value: "false"
+          volumeMounts:
+            - name: growi-up-files
+              mountPath: /data
+      volumes:
+        - name: growi-up-files
+          persistentVolumeClaim:
+            claimName: up-files
