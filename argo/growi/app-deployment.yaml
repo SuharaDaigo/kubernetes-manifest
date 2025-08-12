@@ -25,7 +25,10 @@ spec:
             - name: ELASTICSEARCH_URI
               value: http://elasticsearch:9200/growi
             - name: MONGO_URI
-              value: mongodb://growiuser:mUHw32hTTEaZ@mongo:27017/growi
+              valueFrom:
+                secretKeyRef:
+                  name: growi-secrets
+                  key: mongo-uri
             - name: PASSWORD_SEED
               valueFrom:
                 secretKeyRef:
