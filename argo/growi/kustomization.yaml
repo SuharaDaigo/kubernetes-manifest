@@ -12,6 +12,7 @@ resources:
   - ingress.yaml
   - mongo-deployment.yaml
   - mongo-service.yaml
+  - secret.yaml
 labels:
   - includeSelectors: true
     pairs:

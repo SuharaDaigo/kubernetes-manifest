@@ -34,10 +34,12 @@ spec:
               value: "true"
             - name: AI_ENABLED
               value: "false"
+            - name: APP_SITE_URL
+              value: https://growi.kimateku.com
           volumeMounts:
             - name: growi-up-files
               mountPath: /data
       volumes:
         - name: growi-up-files
           persistentVolumeClaim:
-            claimName: up-files
+            claimName: up-file
