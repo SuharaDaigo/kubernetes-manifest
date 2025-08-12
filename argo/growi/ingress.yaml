@@ -11,7 +11,7 @@ metadata:
 spec:
   # ingressClassName: nginx  # Cloudflare Tunnel使用時は不要
   rules:
-    - host: growi.kimateku.com
+    - host: wiki.kimateku.com
       http:
         paths:
           - path: /
