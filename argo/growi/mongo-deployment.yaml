@@ -24,15 +24,21 @@ spec:
         io.kompose.service: mongo
     spec:
       containers:
-        - image: mongo:8.0.0
+        - image: mongo:4.4
           name: mongo
           ports:
             - containerPort: 27017
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              value: growiuser
+              valueFrom:
+                secretKeyRef:
+                  name: growi-secrets
+                  key: mongo-username
             - name: MONGO_INITDB_ROOT_PASSWORD
-              value: mUHw32hTTEaZ
+              valueFrom:
+                secretKeyRef:
+                  name: growi-secrets
+                  key: mongo-password
             - name: MONGO_INITDB_DATABASE
               value: growi
           volumeMounts:
