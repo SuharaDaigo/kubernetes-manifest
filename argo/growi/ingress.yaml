@@ -4,11 +4,12 @@ metadata:
   name: growi-ingress
   namespace: growi
   annotations:
-    cert-manager.io/cluster-issuer: le-cf-prod
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # Cloudflare Tunnel使用時はSSLリダイレクト不要
+    # cert-manager.io/cluster-issuer: le-cf-prod
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
-  ingressClassName: nginx
+  # ingressClassName: nginx  # Cloudflare Tunnel使用時は不要
   rules:
     - host: growi.kimateku.com
       http:
@@ -20,8 +21,8 @@ spec:
                 name: app
                 port:
                   number: 3000
-  tls:
-    - hosts:
-        - growi.kimateku.com
-      secretName: growi-kimateku-tls
+  # tls:  # Cloudflare Tunnel使用時はTLSはCloudflareで処理
+  #   - hosts:
+  #       - growi.kimateku.com
+  #     secretName: growi-kimateku-tls
 

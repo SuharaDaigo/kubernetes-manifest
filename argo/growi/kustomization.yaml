@@ -4,6 +4,7 @@ resources:
   - app-deployment.yaml
   - app-inf.yaml
   - app-service.yaml
+  - app-nodeport.yaml
   - db-inf.yaml
   - elasticsearch-deployment.yaml
   - elasticsearch-service.yaml
