@@ -4,6 +4,7 @@ metadata:
   labels:
     io.kompose.service: app
   name: app
+  namespace: growi
 spec:
   replicas: 1
   selector:
