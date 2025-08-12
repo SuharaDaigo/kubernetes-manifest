@@ -9,7 +9,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: ""  # Use default storage class
   resources:
     requests:
       storage: 10Gi
@@ -24,7 +23,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: ""  # Use default storage class
   resources:
     requests:
       storage: 1Gi
