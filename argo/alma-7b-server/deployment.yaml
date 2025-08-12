@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      serviceAccountName: sa
+      containers:
+        - image: ghcr.io/thr3a/alma-7b-server:latest
+          resources: {}
+          imagePullPolicy: IfNotPresent
+          name: web1
+          ports:
+            - containerPort: 30000

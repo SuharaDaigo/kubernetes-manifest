@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: mongo
+  name: mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: mongo
+  template:
+    metadata:
+      labels:
+        io.kompose.service: mongo
+    spec:
+      containers:
+      - image: mongo:4.4
+        name: mongo
+        resources: {}
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - mountPath: /data
+          name: mongo-db
+      volumes:
+      - name: mongo-db
+        persistentVolumeClaim:
+          claimName: mongo-db

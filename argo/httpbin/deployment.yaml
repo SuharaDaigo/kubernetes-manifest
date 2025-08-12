@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      serviceAccountName: sa
+      containers:
+        - image: docker.io/kennethreitz/httpbin
+          resources: {}
+          imagePullPolicy: IfNotPresent
+          name: web
+          ports:
+            - containerPort: 80
