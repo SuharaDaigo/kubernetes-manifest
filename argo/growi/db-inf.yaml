@@ -10,14 +10,14 @@ spec:
   capacity:
     storage: 10Gi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   claimRef:
     namespace: growi
     name: db-data
-  nfs:
-    server: nfs.unipro.infra
-    path: /nfs/infra/growi/db/data
+  hostPath:
+    path: /data/growi/db/data
+    type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -30,7 +30,7 @@ metadata:
     "volume.beta.kubernetes.io/storage-class": "slow"
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
@@ -47,14 +47,14 @@ spec:
   capacity:
     storage: 10Gi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   claimRef:
     namespace: growi
     name: db-config
-  nfs:
-    server: nfs.unipro.infra
-    path: /nfs/infra/growi/db/config
+  hostPath:
+    path: /data/growi/db/config
+    type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -67,7 +67,7 @@ metadata:
     "volume.beta.kubernetes.io/storage-class": "slow"
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi

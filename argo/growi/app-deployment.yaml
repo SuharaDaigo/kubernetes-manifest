@@ -27,9 +27,9 @@ spec:
             - name: MONGO_URI
               value: mongodb://growiuser:mUHw32hTTEaZ@mongo:27017/growi
             - name: PASSWORD_SEED
-              value: changeme
+              value: kimateku-growi-seed-2025
             - name: SECRET_TOKEN
-              value: NRXwRb53dWrq3B8v9Z5y
+              value: KimaTeku2025GrowiSecretToken123
             - name: AUDIT_LOG_ENABLED
               value: "true"
             - name: AI_ENABLED
