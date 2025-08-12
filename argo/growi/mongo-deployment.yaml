@@ -36,6 +36,8 @@ spec:
         - persistentVolumeClaim:
             claimName: db-config
           name: mongo-configdb
+          namespace: growi
         - persistentVolumeClaim:
             claimName: db-data
           name: mongo-db
+          namespace: growi
