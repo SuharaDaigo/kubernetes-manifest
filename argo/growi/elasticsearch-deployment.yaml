@@ -33,6 +33,8 @@ spec:
               value: "true"
           image: thr3a/growi-es
           name: elasticsearch
+          ports:
+            - containerPort: 9200
           volumeMounts:
             - mountPath: /usr/share/elasticsearch/data
               name: es-data
