@@ -30,6 +30,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: growi-ogp-ingress
+  namespace: growi
   annotations:
     cert-manager.io/cluster-issuer: le-cf-prod
     #nginx.ingress.kubernetes.io/ssl-redirect: "true"
